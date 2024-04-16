@@ -2,4 +2,55 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    keys = {
+      { '<leader>ft', '<cmd>Neotree toggle<cr>', desc = 'NeoTree' },
+    },
+
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {},
+  },
+  {
+    'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+    },
+  },
+  -- {
+  --   'jiaoshijie/undotree',
+  --   dependencies = 'nvim-lua/plenary.nvim',
+  --   config = function()
+  --     local undotree = require 'undotree'
+  --
+  --     undotree.setup {
+  --       float_diff = true,
+  --       layout = 'right_bottom',
+  --       ingnore_filetype = { 'Undotree', 'UndotreeDiff', 'qf', 'TelescopePrompt', 'spectre_panel', 'tsplayground' },
+  --       window = {
+  --         winblend = 30,
+  --       },
+  --     }
+  --     vim.keymap.set('n', '<leader>u', undotree.toggle, { noremap = true, silent = true, desc = 'Undotree' })
+  --   end,
+  -- },
+  {
+    'HiPhish/rainbow-delimiters.nvi',
+  },
+  --{
+    --'mbbill/undotree',
+  --},
+}
