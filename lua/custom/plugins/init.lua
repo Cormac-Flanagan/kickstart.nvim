@@ -48,9 +48,34 @@ return {
   --   end,
   -- },
   {
-    'HiPhish/rainbow-delimiters.nvi',
+    'HiPhish/rainbow-delimiters.nvim',
   },
-  --{
-    --'mbbill/undotree',
-  --},
+  {
+    'mbbill/undotree',
+    config = function()
+      vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
+    end,
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    -- event = 'InsertEnter',
+    config = function()
+      -- code
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+      -- vim.keymap.set('n', '<leader>ci', require('copilot.suggestion').toggle_auto_trigger, { desc = 'toggle github copilot' })
+    end,
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+    dependencies = {
+      'zbirenbaum/copilot.lua',
+    },
+  },
 }
