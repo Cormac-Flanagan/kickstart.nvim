@@ -542,7 +542,7 @@ require('lazy').setup({
         -- gopls = {},
         pyright = {},
         -- hls = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -550,7 +550,8 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        --
+
+        sqlls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -581,6 +582,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'black',
+        'autopep8',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -616,7 +619,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
+        python = { 'isort', 'black', 'autopep8' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -742,7 +745,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'slate'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
