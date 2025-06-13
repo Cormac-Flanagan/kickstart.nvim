@@ -3,20 +3,20 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    keys = {
-      { '<leader>ft', '<cmd>Neotree toggle<cr>', desc = 'NeoTree' },
-    },
-
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
-  },
+  -- {
+  --   'nvim-neo-tree/neo-tree.nvim',
+  --   branch = 'v3.x',
+  --   keys = {
+  --     { '<leader>ft', '<cmd>Neotree toggle<cr>', desc = 'NeoTree' },
+  --   },
+  --
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+  --     'MunifTanjim/nui.nvim',
+  --     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+  --   },
+  -- },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
@@ -30,23 +30,6 @@ return {
       -- or leave it empty to use the default settings
     },
   },
-  -- {
-  --   'jiaoshijie/undotree',
-  --   dependencies = 'nvim-lua/plenary.nvim',
-  --   config = function()
-  --     local undotree = require 'undotree'
-  --
-  --     undotree.setup {
-  --       float_diff = true,
-  --       layout = 'right_bottom',
-  --       ingnore_filetype = { 'Undotree', 'UndotreeDiff', 'qf', 'TelescopePrompt', 'spectre_panel', 'tsplayground' },
-  --       window = {
-  --         winblend = 30,
-  --       },
-  --     }
-  --     vim.keymap.set('n', '<leader>u', undotree.toggle, { noremap = true, silent = true, desc = 'Undotree' })
-  --   end,
-  -- },
   {
     'HiPhish/rainbow-delimiters.nvim',
   },
@@ -56,28 +39,7 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
     end,
   },
-  {
-    -- 'zbirenbaum/copilot.lua',
-    -- cmd = 'Copilot',
-    -- -- event = 'InsertEnter',
-    -- config = function()
-    --   -- code
-    --   require('copilot').setup {
-    --     suggestion = { enabled = false },
-    --     panel = { enabled = false },
-    --   }
-    --   vim.keymap.set('n', '<leader>ci', '<cmd> Copilot toggle <cr>', { desc = 'toggle github copilot' })
-    -- end,
-  },
-  {
-    -- 'zbirenbaum/copilot-cmp',
-    -- config = function()
-    --   require('copilot_cmp').setup()
-    -- end,
-    --   dependencies = {
-    --   'zbirenbaum/copilot.lua',
-    -- },
-  },
+
   -- {
   --   'linux-cultist/venv-selector.nvim',
   --   dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
